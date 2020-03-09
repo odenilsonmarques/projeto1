@@ -13,6 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
+Esta rota ja vem por padrão no laravel, e quer dizer que qd o usuario acessar a raiz '/' do laravel este será redirecionado para view welcome 
+que está dentro pasta resource->pasta view.
+Nota: este tipo rota é indicado qd se quer apenas carregar uma pagina simples(ex: tela de login..)
+*/
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+/*
+Esta rota '/teste' tem como propósito retornar a view teste.blade.php que está dentro pasta resource->pasta view.
+Nota: este tipo rota é indicado qd se quer apenas carregar uma pagina simples(ex: tela de login..)
+*/
+Route::get('/teste',function (){
+   return view('teste'); 
+});
+
+
+//Esta rota tem a mesma funcão da rota acima, porem bem mas reduzida
+Route::view('/teste','teste');

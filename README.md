@@ -1,5 +1,5 @@
 
-criando um crud com o propósito de praticar a ultilização do framework laravel
+criando um crud com o propósito de praticar a utilização do framework laravel
 
 
 

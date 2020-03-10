@@ -36,13 +36,33 @@ Route::get('/teste',function (){
 //Route::view('/teste','teste');
 
 
-//Esta rota pega qualquer texto digitado apos o barra noticia, pois a mesma funciona dinamicamente, isso só é possivel devido o a declaração da variavel slug
+/*
+Rota com paramentro
+Esta rota pega qualquer texto digitado apos o barra noticia, pois a mesma funciona dinamicamente, 
+isso só é possivel devido o a declaração da variavel slug
+*/
 Route::get('/noticia/{slug}',function($slug){
     echo "TITULO: ".$slug;
 });
 
-//Esta rota pega qualquer texto digitado apos o barra informaçã e o barra resultado, pois a mesma funciona dinamicamente, isso só é possivel devido o a declaração da variavel slug
+/*
+Rota com parametro
+Esta rota pega qualquer texto digitado apos o barra informaçao e o barra resultado, pois a mesma funciona dinamicamente, 
+isso só é possivel devido o a declaração da variavel slug
+*/
 Route::get('/informacao/{slug}/resultado/{id}',function($slug, $id){
     echo "exibindo o resultado do " .$id. " referente a  informação ".$slug;
-
 });
+
+/*Rotas com regex + provider (expressões regulares). No caso do id a expressãe está montada RouteServiceProvidaer*/
+Route::get('/user/{name}',function($name){
+    echo "MEU NOME EH: ".$name;
+})->where('name','[a-z]+');
+
+Route::get('/user/{id}',function($id){
+    echo "MINHA IDADE EH: ".$id;
+});
+
+
+
+

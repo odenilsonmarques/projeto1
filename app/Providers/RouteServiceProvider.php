@@ -30,7 +30,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        /*Expressão regular para aceitar somente numero quando se usar o id na url*/
+        Route::pattern('id','[0-9]+');
 
         parent::boot();
     }

@@ -70,14 +70,14 @@ A nomeação de rotas é importante, pois permite capturar rotas, gerar link , f
 */
 Route::get('/config',function(){
 
-    //capturando o link da rota informacoes, esse recurso só foi possivel por causa da nomeação da rota info
-    $link = route ('informacoes');
-    echo"link ".$link;
+//capturando o link da rota informacoes, esse recurso só foi possivel por causa da nomeação da rota info
+$link = route ('informacoes');
+echo"link ".$link;
 
-    //caso queira fazer o redirecionamento da rota para uma outra rota usar a forma abaixo 
-    //return redirect ()->route('permissoes');
+//caso queira fazer o redirecionamento da rota para uma outra rota usar a forma abaixo 
+//return redirect ()->route('permissoes');
 
-    return view('config');
+return view('config');
 });
 
 Route::get('/config/info',function(){
@@ -89,4 +89,24 @@ Route::get('/config/permissao',function(){
 })->name('permissoes');
 
 
+//Grupo de Rotas
+//rota raiz
+Route::prefix('/tela')->group(function(){
 
+    //rota a ser chamada quando for acessado a raiz do site, nesse caso basta passa a barra, pois o laravel vai identificar que é preciso ir para a raiz do site
+    Route::get('/',function(){
+        return view('tela');
+    });
+
+    //nessa rota não necessario passar o barra tela (/tela) e barra tela2 (/tela2),porque o prefixo ja tem o (/tela) e a ROUTE ('/') ja faz o trabalho do barra que seria utilizado no '/tela2'
+    Route::get('tela2',function(){
+        return view('tela2');
+    })->name('teladois');
+
+    //nessa rota não necessario passar o barra tela (/tela) e barra tela3 (/tela3),porque o prefixo ja tem o (/tela) e a ROUTE ('/') ja faz o trabalho do barra que seria utilizado no '/tela2'
+    Route::get('tela3',function(){
+        return view('tela3');
+    })->name('telatres');
+
+
+});

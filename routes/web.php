@@ -48,7 +48,7 @@ Route::get('/noticia/{slug}',function($slug){
 /*
 Rota com parametro
 Esta rota pega qualquer texto digitado apos o barra informaçao e o barra resultado, pois a mesma funciona dinamicamente, 
-isso só é possivel devido o a declaração da variavel slug
+isso só é possivel devido o a declaração das variaveis slug e id
 */
 Route::get('/informacao/{slug}/resultado/{id}',function($slug, $id){
     echo "exibindo o resultado do " .$id. " referente a  informação ".$slug;
@@ -63,6 +63,30 @@ Route::get('/user/{id}',function($id){
     echo "MINHA IDADE EH: ".$id;
 });
 
+
+/*
+Rotas com nome + redirect. 
+A nomeação de rotas é importante, pois permite capturar rotas, gerar link , fazer redirecionamentos ...
+*/
+Route::get('/config',function(){
+
+    //capturando o link da rota informacoes, esse recurso só foi possivel por causa da nomeação da rota info
+    $link = route ('informacoes');
+    echo"link ".$link;
+
+    //caso queira fazer o redirecionamento da rota para uma outra rota usar a forma abaixo 
+    //return redirect ()->route('permissoes');
+
+    return view('config');
+});
+
+Route::get('/config/info',function(){
+    echo "tela informações";
+})->name('informacoes');
+
+Route::get('/config/permissao',function(){
+    echo "tela de pemissao";
+})->name('permissoes');
 
 
 

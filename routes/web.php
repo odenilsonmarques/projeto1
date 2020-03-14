@@ -71,8 +71,8 @@ A nomeação de rotas é importante, pois permite capturar rotas, gerar link , f
 Route::get('/config',function(){
 
 //capturando o link da rota informacoes, esse recurso só foi possivel por causa da nomeação da rota info
-$link = route ('informacoes');
-echo"link ".$link;
+//$link = route ('informacoes');
+//echo"link ".$link;
 
 //caso queira fazer o redirecionamento da rota para uma outra rota usar a forma abaixo 
 //return redirect ()->route('permissoes');
@@ -107,6 +107,13 @@ Route::prefix('/tela')->group(function(){
     Route::get('tela3',function(){
         return view('tela3');
     })->name('telatres');
+});
 
-
+/*
+Esta rota sempre é criada para substituir a pagina 404 padrao do laravel, criando esta rota 
+pode-se enviar o usuario para uma view criada pelo proprio programador, então todas as vezes
+que o usuário tentar acessar uma url(rota) que não existe, este será redirecionado para esta view
+*/
+Route::fallback(function(){
+    return view('404');
 });

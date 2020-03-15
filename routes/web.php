@@ -109,10 +109,37 @@ Route::prefix('/tela')->group(function(){
     })->name('telatres');
 });
 
+
+/*
+No grupo das rotas abaixo, as rotas estão sendo redirecionada para um controller, 
+chamado ControllerCompeticao e nesse controllerCompeticao há os método ou funções, onde o nome
+de cada uma é nome declarado após o nome do controlleCompeticao como é mostrado nas rotas abaixo,
+dessa forma, as rotas estão atreladas ao ControllerCompeticao que possui os metodo ou funções que irão 
+chamar as view de cada rota.
+
+nota 1: para criar um controleer usar o comando: php artisan make:controller (iniciar com letra minuscula)
+e depois nome do controller (iniciar com letra maiuscula, caso seja duas palavra usar kamikaze) 
+
+nota 2: logo a rota de competição fica sobre a responsabilidade do ControllerCompeticao
+
+*/
+Route::prefix('/competicao')->group(function(){
+
+    Route::get('/','CompeticaoController@index');
+
+    Route::get('/competicaosecundaria','CompeticaoController@competicaosecundaria');
+
+    Route::get('/competicaoterciaria','CompeticaoController@competicaoterciaria');
+
+});
+ 
+
 /*
 Esta rota sempre é criada para substituir a pagina 404 padrao do laravel, criando esta rota 
 pode-se enviar o usuario para uma view criada pelo proprio programador, então todas as vezes
 que o usuário tentar acessar uma url(rota) que não existe, este será redirecionado para esta view
+
+OBS: esta rota deve ficar de preferencia no final das rotas
 */
 Route::fallback(function(){
     return view('404');

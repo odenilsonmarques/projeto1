@@ -121,7 +121,6 @@ nota 1: para criar um controleer usar o comando: php artisan make:controller (in
 e depois nome do controller (iniciar com letra maiuscula, caso seja duas palavra usar kamikaze) 
 
 nota 2: logo a rota de competição fica sobre a responsabilidade do ControllerCompeticao
-
 */
 Route::prefix('/competicao')->group(function(){
 
@@ -132,7 +131,22 @@ Route::prefix('/competicao')->group(function(){
     Route::get('/competicaoterciaria','CompeticaoController@competicaoterciaria');
 
 });
- 
+
+/*
+Os controller abaixo está dentro da pasta admin que está dentro da pasta controller,
+esse procedimento não influencia no desempenho da aplicação..., apenas deixa o codigo mas organizado
+*/
+
+Route::prefix('/serieA')->group(function(){
+
+    Route::get('/','Admin\ControllerSerie@index');
+
+    Route::get('/serieB','Admin\ControllerSerie@serieB');
+
+    Route::get('/serieC','Admin\ControllerSerie@serieC');
+
+});
+
 
 /*
 Esta rota sempre é criada para substituir a pagina 404 padrao do laravel, criando esta rota 

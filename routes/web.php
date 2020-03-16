@@ -147,6 +147,20 @@ Route::prefix('/serieA')->group(function(){
 
 });
 
+/*
+
+*/
+
+Route:: prefix('/animal')->group(function(){
+
+    Route::get('/','AdminAnimal\ControllerAnimal@index');
+
+    Route::get('/cachorro','AdminAnimal\ControllerAnimal@cachorro');
+
+    Route::get('/gato','AdminAnimal\ControllerAnimal@gato');
+
+});
+
 
 /*
 Esta rota sempre é criada para substituir a pagina 404 padrao do laravel, criando esta rota 

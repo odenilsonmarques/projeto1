@@ -133,7 +133,7 @@ Route::prefix('/competicao')->group(function(){
 });
 
 /*
-Os controller abaixo está dentro da pasta admin que está dentro da pasta controller,
+O controller abaixo está dentro da pasta admin que está dentro da pasta controller,
 esse procedimento não influencia no desempenho da aplicação..., apenas deixa o codigo mas organizado
 */
 
@@ -148,7 +148,8 @@ Route::prefix('/serieA')->group(function(){
 });
 
 /*
-
+O controller abaixo está dentro da pasta adminAnimal que está dentro da pasta controller,
+esse procedimento não influencia no desempenho da aplicação..., apenas deixa o codigo mas organizado
 */
 
 Route:: prefix('/animal')->group(function(){

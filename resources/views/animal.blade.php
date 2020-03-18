@@ -11,3 +11,8 @@
     <input type="submit" value="ENVIAR">
 </form>
 
+<!--
+os dados do formulário acima serão enviado para mesma página, além disso, 
+este serão recebido pelo parametro $request, declarado na função ou método index que está dentro 
+do controllerAnimal 
+-->

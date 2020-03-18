@@ -24,9 +24,35 @@ class ControllerAnimal extends Controller
      //$method = $request->method();
     //echo "O METHODO DE REQUISIÇÃO UTIIZADO FOI: ".$method;
 
+    //os dados enviado pela formmulario presente na view animal, serão redirecionado para o parametro $request
+    //logo apos todos estes sao capturado pela funcão all(), essa funcão pegas os dados via post e get ...
+    $data = $request->all();
+    print_r($data);
+
+    //pegando somente o nome enviado pelo formulario
+    //echo "Meu nome é :".$data['nome']."<br><br>"; 
+
+    //pegando dados com input (esta forma pega os dados da url quando não há dados no campo input nome)
+    $data = $request->input('nome');
+    print_r($data); 
+
+    //pegando dados exclusivamente da url
+    $data = $request->query('nome');
+    print_r($data); 
+    
+    //verificando se algun dado foi enviado e preenchido
+    if($request->filled('cpf')){
+        echo "existe um cpf";
+    }else{
+        echo "não existe cpf";
+    }
+
         return view('animal');
     }
+
     public function cachorro(){
+        
+
         return view('cachorro');
     }
     public function gato(){

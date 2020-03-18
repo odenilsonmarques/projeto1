@@ -1,6 +1,6 @@
 <?php
 //foi implemenado nesta rota a pasta AdminAnimal, pois o controllerAnimal está dentro da pasta AdminAnimal que está dentro da pasta controller
-namespace App\Http\Controllers\AdminAnimal;
+namespace App\Http\Controllers\adminAnimal;
 //importando a classe controller
 use App\Http\Controllers\controller;
 
@@ -47,13 +47,22 @@ class ControllerAnimal extends Controller
         echo "não existe cpf";
     }
 
-        return view('animal');
+        return view('adminAnimal.animal');
     }
 
+    //passando dados do controller para a view, estou utilizando essa funcção ou metodo, mas poderia ser outro
     public function cachorro(){
         
+        //para passar os dados para view, foi declarado as variaveie e depois foi criado um array para ser passado os dados
+        $nome = "fred";
+        $idade = 3;
 
-        return view('cachorro');
+        $data = [
+            'nome' => $nome,
+            'idade' => $idade
+        ];
+
+        return view('adminAnimal.cachorro',$data);
     }
     public function gato(){
         echo "Bem - vindo a pagina de gato";

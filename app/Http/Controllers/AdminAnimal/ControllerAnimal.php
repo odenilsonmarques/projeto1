@@ -55,7 +55,7 @@ class ControllerAnimal extends Controller
         
         //para passar os dados para view, foi declarado as variaveie e depois foi criado um array para ser passado os dados
         $nome = "fred";
-        $idade = 3;
+        $idade = 30;
 
         $data = [
             'nome' => $nome,

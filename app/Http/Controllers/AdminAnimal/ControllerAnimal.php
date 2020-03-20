@@ -64,7 +64,16 @@ class ControllerAnimal extends Controller
 
         return view('adminAnimal.cachorro',$data);
     }
+
     public function gato(){
-        echo "Bem - vindo a pagina de gato";
+        $nomeGato = "kalebe";
+        $idadeGato = 20;
+
+        $dataAnimal = [
+            'nomeGato' => $nomeGato,
+            'idadeGato' => $idadeGato 
+        ];
+
+        return view('adminAnimal.gato',$dataAnimal);
     }
 }
